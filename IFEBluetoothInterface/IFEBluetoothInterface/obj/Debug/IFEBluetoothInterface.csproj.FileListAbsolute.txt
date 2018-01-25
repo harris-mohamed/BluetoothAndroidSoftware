@@ -7,3 +7,12 @@ C:\Users\Harris Mohamed\Documents\College\IFE\Windows Bluetooth Interface\IFEBlu
 C:\Users\Harris Mohamed\Documents\College\IFE\Windows Bluetooth Interface\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.exe
 C:\Users\Harris Mohamed\Documents\College\IFE\Windows Bluetooth Interface\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.pdb
 C:\Users\Harris Mohamed\Documents\College\IFE\Windows Bluetooth Interface\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.BluetoothInterface.resources
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\bin\Debug\IFEBluetoothInterface.exe.config
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.exe
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.pdb
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\bin\Debug\IFEBluetoothInterface.exe
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\bin\Debug\IFEBluetoothInterface.pdb
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.csprojResolveAssemblyReference.cache
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.BluetoothInterface.resources
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.Properties.Resources.resources
+C:\Users\Harris Mohamed\Documents\College\IFE\Software\IFEBluetoothInterface\IFEBluetoothInterface\obj\Debug\IFEBluetoothInterface.csproj.GenerateResource.Cache

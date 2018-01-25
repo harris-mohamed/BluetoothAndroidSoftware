@@ -426,7 +426,7 @@
             // 
             // BT
             // 
-            this.BT.ReceivedBytesThreshold = 5;
+            this.BT.ReceivedBytesThreshold = 8;
             this.BT.WriteTimeout = 500;
             this.BT.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.BT_DataReceived);
             // 
