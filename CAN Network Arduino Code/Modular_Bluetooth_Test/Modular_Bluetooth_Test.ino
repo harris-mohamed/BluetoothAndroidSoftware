@@ -8,21 +8,24 @@
 
 SoftwareSerial BT = SoftwareSerial(3, 4);   //RX, TX
 
-String company[9];
+String company[8];
 String company_out[9];
-String rev_version[9];
+String rev_version[8];
 String rev_version_out[9];
-String state[8];
+String state[7];
 String state_out[8]; 
-String voltage[7];
+String voltage[6];
 String voltage_out[7];
-String current[7];
+String current[6];
 String current_out[7];
-String energy[9];
+String energy[8];
 String energy_out[9];
-String charge[8];
-String temp[7];
-String resistance[7];
+String charge[7];
+String charge_out[8];
+String temp[6];
+String temp_out[7];
+String resistance[6];
+String resistance_out[7]; 
 
 void setup() {
   BT.begin(9600);
@@ -53,8 +56,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          company[x] = message.data[i];
+          company[i] = message.data[i];
         }
 
       }
@@ -63,8 +65,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          rev_version[x] = message.data[i];
+          rev_version[i] = message.data[i];
         }
 
       }
@@ -73,8 +74,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          state[x] = message.data[i];
+          state[i] = message.data[i];
         }
 
       }
@@ -83,8 +83,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          voltage[x] = message.data[i];
+          voltage[i] = message.data[i];
         }
 
       }
@@ -93,8 +92,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          current[x] = message.data[i];
+          current[i] = message.data[i];
         }
 
       }
@@ -103,8 +101,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          energy[x] = message.data[i];
+          energy[i] = message.data[i];
         }
 
       }
@@ -113,8 +110,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          charge[x] = message.data[i];
+          charge[i] = message.data[i];
         }
 
       }
@@ -123,8 +119,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          temp[x] = message.data[i];
+          temp[i] = message.data[i];
         }
 
       }
@@ -133,8 +128,7 @@ void loop() {
       {
         for (int i = 0; i < message.header.length; i++)
         {
-          int x = i + 1;
-          rev_version[x] = message.data[i];
+          rev_version[i] = message.data[i];
         }
 
       }
@@ -147,17 +141,36 @@ void loop() {
 }
 
 void calculate_and_format() {
-  company[0] = "#";
-  rev_version[0] = "#";
-  state[0] = "#";
-  voltage[0] = #";
-  current[0] = "#";
-  energy[0] = "#";
-  charge[0] = "#";
-  temp[0] = "#";
-  resistance[0] = "#";
+  company_out[0] = "#";
+  rev_version_out[0] = "#";
+  state_out[0] = "#";
+  voltage_out[0] = "#";
+  current_out[0] = "#";
+  energy_out[0] = "#";
+  charge_out[0] = "#";
+  temp_out[0] = "#";
+  resistance_out[0] = "#";
 
-    
+  int timeon_highbyte;
+  int timeon_lowbyte; 
+  int powerup_time; 
+  String converted_time;
+  
+  for (int x = 0; x < 8; x++){
+    company[x] = company_out[x+1];
+    rev_version[x] = rev_version_out[x+1]; 
+    }    
+
+  timeon_highbyte = state[1].toInt();   
+  timeon_lowbyte = state[2].toInt(); 
+  powerup_time = ((timeon_highbyte<<8) || timeon_lowbyte);
+  converted_time = (String) powerup_time; 
+  state_out[1] = converted_time; 
+  for (int y = 3; y < 9; y++){
+    state_out[y] = state_out[y-1];
+    }
+
+  
 }
 
 void bluetooth_out() {
