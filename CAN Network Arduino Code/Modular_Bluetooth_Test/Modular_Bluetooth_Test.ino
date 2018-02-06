@@ -13,11 +13,11 @@ String company_out[9];
 String rev_version[8];
 String rev_version_out[9];
 String state[7];
-String state_out[8]; 
+String state_out[8];
 String voltage[6];
 String voltage_out[7];
-String current[6];
-String current_out[7];
+String current[7];
+String current_out[3];
 String energy[8];
 String energy_out[9];
 String charge[7];
@@ -25,7 +25,7 @@ String charge_out[8];
 String temp[6];
 String temp_out[7];
 String resistance[6];
-String resistance_out[7]; 
+String resistance_out[7];
 
 void setup() {
   BT.begin(9600);
@@ -151,26 +151,56 @@ void calculate_and_format() {
   temp_out[0] = "#";
   resistance_out[0] = "#";
 
-  int timeon_highbyte;
-  int timeon_lowbyte; 
-  int powerup_time; 
+  unsigned int timeon_highbyte, timeon_lowbyte, powerup_time;
   String converted_time;
-  
-  for (int x = 0; x < 8; x++){
-    company[x] = company_out[x+1];
-    rev_version[x] = rev_version_out[x+1]; 
-    }    
 
-  timeon_highbyte = state[1].toInt();   
-  timeon_lowbyte = state[2].toInt(); 
-  powerup_time = ((timeon_highbyte<<8) || timeon_lowbyte);
-  converted_time = (String) powerup_time; 
-  state_out[1] = converted_time; 
-  for (int y = 3; y < 9; y++){
-    state_out[y] = state_out[y-1];
-    }
+  for (int x = 0; x < 8; x++) {
+    company[x] = company_out[x + 1];
+    rev_version[x] = rev_version_out[x + 1];
+  }
 
-  
+  timeon_highbyte = state[1].toInt();
+  timeon_lowbyte = state[2].toInt();
+  powerup_time = ((timeon_highbyte << 8) || timeon_lowbyte);
+  converted_time = (String) powerup_time;
+  state_out[1] = converted_time;
+
+  unsigned int voltage_highbyte, voltage_lowbyte, voltage_actual;
+  String converted_voltage;
+
+  voltage_highbyte = voltage[0].toInt();
+  voltage_lowbyte = voltage[1].toInt();
+  voltage_actual = ((voltage_highbyte << 8) || voltage_lowbyte);
+  converted_voltage = (String) voltage_actual;
+
+  voltage_out[0] = converted_voltage;
+  for (int x = 1; x < 8; x++) {
+    voltage_out[x] = voltage_out[x - 1];
+  }
+
+  signed int current_highbyte, current_lowbyte, current_actual, charge_highbyte;
+  signed int charge_lowbyte, charge_actual, discharge_highbyte, discharge_lowbyte;
+  signed int discharge_actual;
+  String converted_current, converted_charge, converted_discharge; 
+
+  current_highbyte = current[0].toInt();
+  current_lowbyte = current[1].toInt();
+  current_actual = ((current_highbyte << 8) || current_lowbyte); 
+  converted_current = (String) current_actual;
+
+  charge_highbyte = current[2].toInt();
+  charge_lowbyte = current[3].toInt();
+  charge_actual = ((charge_highbyte << 8) || charge_lowbyte);
+  converted_charge = (String) charge_actual; 
+
+  discharge_highbyte = current[4].toInt();
+  discharge_lowbyte = current[5].toInt(); 
+  discharge_actual = ((discharge_highbyte << 8) || discharge_lowbyte); 
+  converted_discharge = (String) discharge_actual; 
+
+  current_out[0] = converted_current;
+  current_out[1] = converted_charge;
+  current_out[2] = converted_discharge;
 }
 
 void bluetooth_out() {
